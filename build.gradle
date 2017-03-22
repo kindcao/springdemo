@@ -1,0 +1,48 @@
+group 'demo'
+version '1.0'
+
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+buildscript {
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+//apply plugin: 'war'
+
+
+jar {
+    baseName = 'springdemo'
+    version = "${version}"
+}
+
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // compile('org.springframework.boot:spring-boot-starter-cache')
+    // compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}
+
