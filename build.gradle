@@ -7,6 +7,8 @@ allprojects {
     targetCompatibility = 1.7
 }
 
+
+
 buildscript {
     ext {
         springBootVersion = '1.4.1.RELEASE'
@@ -29,6 +31,7 @@ jar {
     version = "${version}"
 }
 
+
 repositories {
     jcenter()
 }
@@ -38,8 +41,18 @@ dependencies {
     compile('org.springframework.boot:spring-boot-devtools')
     compile("org.springframework.boot:spring-boot-starter-web")
     // compile('org.springframework.boot:spring-boot-starter-cache')
-    // compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+    //mybatis
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
+    compile("mysql:mysql-connector-java")
+    compile("com.github.pagehelper:pagehelper:4.1.6")
+    //mybatis
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task copyJars(type: Copy) {
+    from configurations.runtime
+    into './lib'
 }
 
 task wrapper(type: Wrapper) {
