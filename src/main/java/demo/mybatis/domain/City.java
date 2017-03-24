@@ -1,4 +1,4 @@
-package demo.mybaits.domain;
+package demo.mybatis.domain;
 
 import java.io.Serializable;
 

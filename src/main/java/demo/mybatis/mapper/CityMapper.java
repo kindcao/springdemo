@@ -1,4 +1,4 @@
-package demo.mybaits.mapper;
+package demo.mybatis.mapper;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import demo.mybaits.domain.City;
+import demo.mybatis.domain.City;
 
 /**
  * Created by kind on 2017/3/22.

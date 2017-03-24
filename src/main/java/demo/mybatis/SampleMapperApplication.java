@@ -1,11 +1,11 @@
-package demo.mybaits;
+package demo.mybatis;
 
 import org.apache.log4j.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import demo.mybaits.domain.City;
-import demo.mybaits.mapper.CityMapper;
+import demo.mybatis.domain.City;
+import demo.mybatis.mapper.CityMapper;
 
 /**
  * Created by kind on 2017/3/22.

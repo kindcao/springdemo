@@ -8,7 +8,6 @@ allprojects {
 }
 
 
-
 buildscript {
     ext {
         springBootVersion = '1.4.1.RELEASE'
@@ -19,16 +18,23 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
+
 }
 
 apply plugin: 'spring-boot'
 apply plugin: 'java'
 //apply plugin: 'war'
 
+springBoot {
+    mainClass = "demo.mybatis.SampleXmlApplication"
+}
 
 jar {
     baseName = 'springdemo'
     version = "${version}"
+    manifest {
+        attributes 'Main-Class': 'demo.mybatis.SampleXmlApplication'
+    }
 }
 
 
@@ -50,12 +56,30 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-task copyJars(type: Copy) {
-    from configurations.runtime
-    into './lib'
+task clearPj(type: Delete) {
+    delete "${projectDir}/build", "${projectDir}/target", "${projectDir}/lib"
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.14.1'
 }
 
+task copyJars(type: Sync) {
+    from configurations.runtime
+    into "${projectDir}/lib"
+}
+
+task copyMapperXml(type: Copy) {
+    from "${projectDir}/src/main/java/"
+    into "${buildDir}/classes/main/"
+    include '**/*Mapper.xml'
+}
+
+task copyResources(type: Copy) {
+    from "${projectDir}/src/main/resources/"
+    into "${buildDir}/classes/"
+}
+
+//
+compileJava.dependsOn clearPj
+processResources.dependsOn copyJars, copyResources, copyMapperXml
