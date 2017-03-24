@@ -1,6 +1,7 @@
 package demo.mybatis;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,7 @@ import demo.mybatis.mapper.HotelMapper;
 @SpringBootApplication
 public class SampleXmlApplication implements CommandLineRunner {
 
-    private static Logger logger = Logger.getLogger(SampleXmlApplication.class);
+    private static Logger log = LoggerFactory.getLogger(SampleXmlApplication.class);
 
     private final CityDao cityDao;
 
@@ -30,7 +31,7 @@ public class SampleXmlApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("\tcityDao.selectCityById ->1" + " = " + cityDao.selectCityById(1));
-        logger.info("\thotelMapper.selectByCityId ->1" + " = " + hotelMapper.selectByCityId(1));
+        log.info("\tcityDao.selectCityById ->1" + " = " + cityDao.selectCityById(1));
+        log.info("\thotelMapper.selectByCityId ->1" + " = " + hotelMapper.selectByCityId(1));
     }
 }

@@ -1,6 +1,7 @@
 package demo.mybatis;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,7 @@ import demo.mybatis.mapper.CityMapper;
 @SpringBootApplication
 public class SampleMapperApplication implements CommandLineRunner {
 
-    private static Logger logger = Logger.getLogger(SampleMapperApplication.class);
+    private static Logger log = LoggerFactory.getLogger(SampleMapperApplication.class);
 
     final private CityMapper cityMapper;
 
@@ -27,15 +28,15 @@ public class SampleMapperApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("\tfindByName ->San Francisco" + " = " + cityMapper.findByName("San Francisco"));
-        logger.info("\tfindByState ->CA" + " = " + cityMapper.findByState("CA"));
-        logger.info("\tfindNames ->y" + " = " + cityMapper.findNames("y"));
+        log.info("\tfindByName ->San Francisco" + " = " + cityMapper.findByName("San Francisco"));
+        log.info("\tfindByState ->CA" + " = " + cityMapper.findByState("CA"));
+        log.info("\tfindNames ->y" + " = " + cityMapper.findNames("y"));
         //
         City city = new City();
         city.setName("Haha");
         city.setState("CA");
         city.setCountry("US");
-        logger.info("\tadd ->" + city);
+        log.info("\tadd ->" + city);
         cityMapper.add(city);
         //
     }
