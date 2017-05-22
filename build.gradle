@@ -46,12 +46,15 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-devtools')
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-freemarker")
     // compile('org.springframework.boot:spring-boot-starter-cache')
     //mybatis
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
     compile("mysql:mysql-connector-java")
     compile("com.github.pagehelper:pagehelper:4.1.6")
-    //mybatis
+    //mybatis,
+
+    //compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.5.0")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
