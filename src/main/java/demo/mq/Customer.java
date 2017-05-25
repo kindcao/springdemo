@@ -12,9 +12,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by kind on 2017/5/24.
  */
 @Component
-public class Consumer {
+public class Customer {
 
-    private static Logger log = LoggerFactory.getLogger(Consumer.class);
+    private static Logger log = LoggerFactory.getLogger(Customer.class);
     //    @JmsListener(destination = "sample.queue")
     //    public void receiveQueue(String text) {
     //        log.info("<<< [sample.queue]：" + text);
