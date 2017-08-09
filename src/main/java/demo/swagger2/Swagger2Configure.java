@@ -32,7 +32,7 @@ public class Swagger2Configure {
                 //
                 .title("Spring Boot中使用Swagger2 UI构建API文档")
                 //
-                .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+                .license("Apache LICENSE 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .termsOfServiceUrl("")
                 //创建人
                 .contact(new Contact("Kind", "http://www.abc.com", "kindapi@finet.cn"))
