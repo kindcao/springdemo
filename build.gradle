@@ -26,14 +26,14 @@ apply plugin: 'java'
 //apply plugin: 'war'
 
 springBoot {
-    mainClass = "demo.mybatis.SampleXmlApplication"
+    mainClass = "demo.mybatis.MvcSampleApp"
 }
 
 jar {
     baseName = 'springdemo'
     version = "${version}"
     manifest {
-        attributes 'Main-Class': 'demo.mybatis.SampleXmlApplication'
+        attributes 'Main-Class': 'demo.mybatis.MvcSampleApp'
     }
 }
 
@@ -46,6 +46,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.5.0")
     compile("org.springframework.boot:spring-boot-starter-freemarker")
     // compile('org.springframework.boot:spring-boot-starter-cache')
     //mybatis
@@ -54,13 +55,16 @@ dependencies {
     compile("com.github.pagehelper:pagehelper:4.1.6")
     //mybatis
 
-    //compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.5.0")
-
     //ActiveMQ
     compile("org.springframework.boot:spring-boot-starter-activemq")
     //websocket
     compile("org.springframework.boot:spring-boot-starter-websocket")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    //swagger2
+    compile("io.springfox:springfox-swagger2:2.6.1")
+    compile("io.springfox:springfox-swagger-ui:2.6.1")
+    //compile("com.google.guava:guava")
+
     //
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
