@@ -17,7 +17,7 @@ import java.util.Locale;
 /**
  * Created by kind on 2017/8/8.
  */
-@Api(value = "Swagger2应用", description = "简单的Swagger2应用示例，提供User对象的CRUD操作")
+@Api(value = "Swagger2应用", description = "简单的CRUD操作示例")
 @RestController
 @RequestMapping("/user")
 public class UserController {
