@@ -1,21 +1,23 @@
 package demo.cfgprop.company;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.validator.constraints.URL;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.URL;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kind on 2017/3/29.
  */
 // prefix设置key的前缀;
-@ConfigurationProperties(prefix = "com.kfit.company", locations = "classpath:company.properties")
 @Component
+@PropertySource("classpath:company.properties")
+@ConfigurationProperties(prefix = "com.kfit.company")
 public class CompanyProperties {
 
     @NotNull
@@ -117,8 +119,8 @@ public class CompanyProperties {
 
     @Override
     public String toString() {
-        return "CompanyProperties [name=" + name + ", location=" + location + ", mobile=" + mobile + ", employCount="
-                + employCount + ", firstName=" + firstName + ", logoPath=" + logoPath + ", companyFullname="
-                + companyFullname + ", employs=" + employs + "]";
+        return "CompanyProperties [name=" + name + ", location=" + location + ", mobile=" + mobile + ", employCount=" +
+                employCount + ", firstName=" + firstName + ", logoPath=" + logoPath + ", companyFullname=" +
+                companyFullname + ", employs=" + employs + "]";
     }
 }
