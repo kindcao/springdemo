@@ -10,7 +10,8 @@ allprojects {
 
 buildscript {
     ext {
-        springBootVersion = '1.4.1.RELEASE'
+        //springBootVersion = '1.4.1.RELEASE'
+        springBootVersion = '1.4.7.RELEASE'
     }
     repositories {
         jcenter()
@@ -48,7 +49,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.5.0")
     compile("org.springframework.boot:spring-boot-starter-freemarker")
-    // compile('org.springframework.boot:spring-boot-starter-cache')
+    //compile('org.springframework.boot:spring-boot-starter-cache')
     //mybatis
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
     compile("mysql:mysql-connector-java")
@@ -63,7 +64,12 @@ dependencies {
     //swagger2
     compile("io.springfox:springfox-swagger2:2.6.1")
     compile("io.springfox:springfox-swagger-ui:2.6.1")
-    //compile("com.google.guava:guava")
+    //redis
+    //compile("org.springframework.boot:spring-boot-starter-redis")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    //compile("javax.persistence:persistence-api:1.0.2")
+    //compile("org.hibernate:ejb3-persistence:3.3.2.Beta1")
 
     //
     testCompile("org.springframework.boot:spring-boot-starter-test")

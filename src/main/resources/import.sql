@@ -1,5 +1,6 @@
 drop table if exists city;
 drop table if exists hotel;
+drop table if exists user_;
 
 -- ----------------------------
 -- Table structure for city
@@ -84,3 +85,20 @@ insert into hotel(city, name, address, zip) values (2, 'The Margate Resort', '76
 insert into hotel(city, name, address, zip) values (3, 'Holiday Inn Express and Suites Merrimack', '4 Amherst Road', '5232');
 
 
+
+-- ----------------------------
+-- Table structure for user_
+-- ----------------------------
+CREATE TABLE `user_` (
+  `username_` varchar(20) NOT NULL,
+  `password_` varchar(20) NOT NULL,
+  `id_` int(10) unsigned NOT NULL auto_increment,
+  `nickname_` varchar(20) NOT NULL,
+  PRIMARY KEY  (`id_`),
+  UNIQUE KEY `username_` (`username_`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records
+-- ----------------------------
+insert into user_ (username_, password_, nickname_) values ('admin', 'password', 'admin' );
