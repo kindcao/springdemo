@@ -1,6 +1,5 @@
 package demo.swagger2.controller;
 
-import com.sun.deploy.net.HttpResponse;
 import demo.swagger2.auth.annotation.Authorization;
 import demo.swagger2.auth.annotation.CurrentUser;
 import demo.swagger2.auth.model.ResultModel;
@@ -48,14 +47,16 @@ public class TokenController {
         User2 user2 = userRepository.findByUsername(username);
         if (user2 == null) {
             //提示用户名不存在
-            return new ResponseEntity<>(ResultModel.error(ResultStatus.USERNAME_NOT_FOUND), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<ResultModel>(ResultModel.error(ResultStatus.USERNAME_NOT_FOUND),
+                    HttpStatus.NOT_FOUND);
         } else if (!user2.getPassword().equals(password)) {
             //提示密码错误
-            return new ResponseEntity<>(ResultModel.error(ResultStatus.PASSWORD_ERROR), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<ResultModel>(ResultModel.error(ResultStatus.PASSWORD_ERROR),
+                    HttpStatus.NOT_FOUND);
         }
         //生成一个token，保存用户登录状态
         TokenModel model = tokenManager.createToken(user2.getId());
-        return new ResponseEntity<>(ResultModel.ok(model), HttpStatus.OK);
+        return new ResponseEntity<ResultModel>(ResultModel.ok(model), HttpStatus.OK);
     }
 
     @Authorization
@@ -63,8 +64,8 @@ public class TokenController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "authorization", value = "authorization", dataType = "string", required = true, defaultValue = "1_d41699decfa7401ca58dd85c5452f1ff", paramType = "header") })
     @RequestMapping(value = "/logout", method = RequestMethod.DELETE)
-    public ResponseEntity<ResultModel> logout(@CurrentUser User2 user2, HttpResponse response) {
+    public ResponseEntity<ResultModel> logout(@CurrentUser User2 user2) {
         tokenManager.deleteToken(user2.getId());
-        return new ResponseEntity<>(ResultModel.ok(), HttpStatus.OK);
+        return new ResponseEntity<ResultModel>(ResultModel.ok(), HttpStatus.OK);
     }
 }
