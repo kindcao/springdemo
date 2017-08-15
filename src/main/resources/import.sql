@@ -102,3 +102,6 @@ CREATE TABLE `user_` (
 -- Records
 -- ----------------------------
 insert into user_ (username_, password_, nickname_) values ('admin', 'password', 'admin' );
+insert into user_ (username_, password_, nickname_) values ('admin2', 'password2', 'admin2' );
+insert into user_ (username_, password_, nickname_) values ('admin3', 'password3', 'admin3' );
+insert into user_ (username_, password_, nickname_) values ('admin4', 'password4', 'admin4' );

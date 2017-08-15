@@ -68,4 +68,15 @@ public class TokenController {
         tokenManager.deleteToken(user2.getId());
         return new ResponseEntity<ResultModel>(ResultModel.ok(), HttpStatus.OK);
     }
+
+    @Authorization
+    @ApiOperation(value = "查询所有用户", notes = "查询所有用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "authorization", value = "authorization", dataType = "string", required = true, defaultValue = "1_d41699decfa7401ca58dd85c5452f1ff", paramType = "header") })
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public ResponseEntity<ResultModel> findAll(@CurrentUser User2 user2) {
+        return new ResponseEntity<ResultModel>(ResultModel.ok(userRepository.findAll()), HttpStatus.OK);
+    }
+
+
 }
